@@ -2,9 +2,6 @@
 // Created by Damian Kurpiewski on 27.10.2016.
 //
 
-//
-// Created by Damian Kurpiewski on 27.10.2016.
-//
 #include <iostream>
 #include <cmath>
 using namespace std;
