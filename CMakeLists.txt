@@ -3,5 +3,5 @@ project(Alghoritms)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES merge_sort.cpp)
+set(SOURCE_FILES bubble_sort.cpp)
 add_executable(Alghoritms ${SOURCE_FILES})
