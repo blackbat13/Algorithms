@@ -5,15 +5,23 @@
 #include <iostream>
 using namespace std;
 
+/// Finds minimum value in specified range [from, to) and returns its index
+int find_min(int array[], int from, int to) {
+    int min_value = array[from], min_index = from;
+    for (int i = from + 1; i < to; i++) {
+        if (array[i] < min_value) {
+            min_value = array[i];
+            min_index = i;
+        }
+    }
+
+    return min_index;
+}
+
 /// Sort ascending array of specified length
 void selection_sort(int array[], int length) {
     for(int i = 0; i < length; i++) {
-        int min_index = i;
-        for(int j = i + 1; j < length; j++) {
-            if(array[j] < array[min_index]) {
-                min_index = j;
-            }
-        }
+        int min_index = find_min(array, i, length);
 
         swap(array[i], array[min_index]);
     }
