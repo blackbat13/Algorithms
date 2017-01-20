@@ -10,6 +10,8 @@
 using namespace std;
 
 /// Check if n is prime
+/// \param n - number to check
+/// \return true if n is a prime number, false otherwise
 bool is_prime(int n) {
     if(n<2){
         return false;

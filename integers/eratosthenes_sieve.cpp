@@ -5,6 +5,7 @@
 using namespace std;
 
 /// Count prime numbers up to n
+/// \param n - number op to which we count prime numbers
 void erastosthenes_sieve(int n) {
     bool prime[n+1];
     prime[0]=false;

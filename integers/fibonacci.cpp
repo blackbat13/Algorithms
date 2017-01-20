@@ -7,6 +7,8 @@
 using namespace std;
 
 /// Count n'th fibonacci number using iterative method
+/// \param n - index of fibonacci number to count
+/// \return n'th fibonacci number
 int fibonacci_iterative(int n) {
     if (n <= 2) {
         return 1;
@@ -23,6 +25,8 @@ int fibonacci_iterative(int n) {
 }
 
 /// Count n'th fibonacci number using recursive method
+/// \param n - index of fibonacci number to count
+/// \return n'th fibonacci number
 int fibonacci_recursive(int n) {
     if (n <= 2) {
         return 1;

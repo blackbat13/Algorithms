@@ -1,11 +1,9 @@
-//
-// Created by Damian Kurpiewski on 27.10.2016.
-//
-
 #include <iostream>
 using namespace std;
 
 /// Sort ascending array of specified length
+/// \param array - array to sort
+/// \param length - length of given array
 void bubble_sort(int array[], int length) {
     for(int i = 0; i < length; i++) {
         for(int j = length - 1; j > i; j--) {

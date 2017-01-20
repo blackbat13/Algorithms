@@ -5,7 +5,7 @@
 #include <iostream>
 using namespace std;
 
-void quick_sort(int *tab, int left, int right) {
+void quick_sort(int tab[], int left, int right) {
     if(right <= left) {
         return;
     }

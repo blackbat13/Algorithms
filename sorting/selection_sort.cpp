@@ -6,6 +6,9 @@
 using namespace std;
 
 /// Finds minimum value in specified range [from, to) and returns its index
+/// \param array - array to search
+/// \param from - beginning of range to search in, inclusive
+/// \param to - end of range to search in, exclusive
 int find_min(int array[], int from, int to) {
     int min_value = array[from], min_index = from;
     for (int i = from + 1; i < to; i++) {
@@ -19,6 +22,8 @@ int find_min(int array[], int from, int to) {
 }
 
 /// Sort ascending array of specified length
+/// \param array - array to sort
+/// \param length - length of given array
 void selection_sort(int array[], int length) {
     for(int i = 0; i < length; i++) {
         int min_index = find_min(array, i, length);

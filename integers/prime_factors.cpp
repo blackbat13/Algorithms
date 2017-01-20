@@ -6,6 +6,7 @@
 using namespace std;
 
 /// Given integer n print its prime factors
+/// \param n - number to check
 void distribute(int n) {
     int i = 2;
     while(n > 1) {

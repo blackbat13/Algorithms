@@ -6,14 +6,16 @@ using namespace std;
 
 int coins[8] = {200, 100, 50, 20, 10, 5, 2, 1};
 
-/// Return minimal numbers of coins used to give out a
-int change_greedy(int a) {
+/// Get minimal numbers of coins used to give out amount using greedy algorithm
+/// \param amount - amount to give out
+/// \return minimum number of coins from array coins used to give out amount
+int change_greedy(int amount) {
     int result = 0;
     int i = 0;
 
     while(a > 0) {
-        result += a / coins[i];
-        a %= coins[i];
+        result += amount / coins[i];
+        amount %= coins[i];
         i++;
     }
 
@@ -21,11 +23,11 @@ int change_greedy(int a) {
 }
 
 int main() {
-    int a;
+    int amount;
     cout << "Enter amount: ";
-    cin >> a;
+    cin >> amount;
 
-    cout << "Amount " << a << " can be given out using " << change_greedy(a) << " coins." << endl;
+    cout << "Amount " << amount << " can be given out using " << change_greedy(amount) << " coins." << endl;
 
     return 0;
 }

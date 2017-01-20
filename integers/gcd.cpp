@@ -7,6 +7,7 @@
 using namespace std;
 
 /// Count gcd(a,b) using iterative method
+/// \return gcd(a,b)
 int gcd_iterative(int a, int b) {
     while(b != 0) {
         int b2 = b;
@@ -17,7 +18,8 @@ int gcd_iterative(int a, int b) {
     return a;
 }
 
-/// COunt gcd(a,b) using recursive method
+/// Count gcd(a,b) using recursive method
+/// \return gcd(a,b)
 int gcd_recursive(int a, int b) {
     if(b == 0) {
         return a;

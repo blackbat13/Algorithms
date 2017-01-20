@@ -7,6 +7,8 @@
 using namespace std;
 
 /// Check if n is perfect
+/// \param n - number to check
+/// \return true if n is perfect number, false otherwise
 bool is_perfect(int n) {
     int sum = 0;
 

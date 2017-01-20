@@ -14,6 +14,10 @@ double f(double x) {
 
 /// Compute area under function f
 ///   from a to b using n rectangles
+/// \param a - start of range
+/// \param b - end of range
+/// \param n - number of rectangles to use
+/// \return area under function f in range [a,b]
 double rectangles_method(int a, int b, int n) {
     double rectangle_width = (b - a)/(double)n;
     double area = 0;
@@ -32,6 +36,10 @@ double rectangles_method(int a, int b, int n) {
 
 /// Compute area under function f
 ///   from a to b using n trapezes
+/// \param a - start of range
+/// \param b - end of range
+/// \param n - number of trapezes to use
+/// \return area under function f in range [a,b]
 double trapezes_method(int a, int b, int n) {
     double trapeze_height = (b - a)/(double)n;
     double area = 0;
