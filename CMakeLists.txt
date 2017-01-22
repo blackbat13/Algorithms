@@ -3,5 +3,5 @@ project(Alghoritms)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES numerical/fast_exponentiation.cpp)
+set(SOURCE_FILES text/palindrom_test.cpp)
 add_executable(Alghoritms ${SOURCE_FILES})
