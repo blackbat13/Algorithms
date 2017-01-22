@@ -6,10 +6,10 @@
 
 using namespace std;
 
-/// Check if a is palindrom
+/// Check if a is palindrome
 /// \param a - string to check
-/// \return true if a is a palindrom, false otherwise
-bool is_palindrom(string a) {
+/// \return true if a is a palindrome, false otherwise
+bool is_palindrome(string a) {
     string b = "";
     for (int i = 0; i < a.length(); i++) {
         b = a[i] + b;
@@ -23,10 +23,10 @@ int main() {
     cout << "Enter string to check: ";
     cin >> a;
 
-    if (is_palindrom(a)) {
-        cout << a << " is a palindrom." << endl;
+    if (is_palindrome(a)) {
+        cout << a << " is a palindrome." << endl;
     } else {
-        cout << a << " is not a palindrom." << endl;
+        cout << a << " is not a palindrome." << endl;
     }
 
     return 0;
