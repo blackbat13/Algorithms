@@ -3,5 +3,5 @@ project(Alghoritms)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES searching/find_min_max.cpp)
+set(SOURCE_FILES numerical/square_root.cpp)
 add_executable(Alghoritms ${SOURCE_FILES})
