@@ -10,7 +10,7 @@ using namespace std;
 /// \param array - array to sort
 /// \param length - length of given array
 void cocktail_shaker_sort(int array[], int length) {
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i <= length / 2; i++) {
         for (int j = i; j < length - i - 1; j++) {
             if (array[j] > array[j + 1]) {
                 swap(array[j], array[j + 1]);
