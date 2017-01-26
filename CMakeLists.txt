@@ -3,5 +3,5 @@ project(Alghoritms)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES text/substring_test.cpp)
+set(SOURCE_FILES sorting/cocktail_shaker_sort.cpp)
 add_executable(Alghoritms ${SOURCE_FILES})
