@@ -2,3 +2,4 @@
 sorting/quicksort_test.cpp
 stl.cpp
 table.cpp
+cmake-build-debug/
