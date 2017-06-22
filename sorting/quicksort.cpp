@@ -3,24 +3,26 @@
 //
 
 #include <iostream>
+
 using namespace std;
 
 void quick_sort(int tab[], int left, int right) {
-    if(right <= left) {
+    if (right <= left) {
         return;
     }
 
-    int pivot = tab[(left+right)/2];
+    int pivot = tab[(left + right) / 2];
     int i = left, j = right;
-    while(i <= j) {
-        while(tab[i] < pivot){
+    while (i <= j) {
+        while (tab[i] < pivot) {
             i++;
         }
-        while(pivot<tab[j]) {
+
+        while (pivot < tab[j]) {
             j--;
         }
 
-        if(i > j) {
+        if (i > j) {
             break;
         }
 
@@ -37,7 +39,7 @@ void quick_sort(int tab[], int left, int right) {
 int main() {
     int tab[] = {7, 2, -2, 7, 7, 293, 1, 5, 94, -5};
     quick_sort(tab, 0, 9);
-    for(int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
         cout << tab[i] << " ";
     }
 
