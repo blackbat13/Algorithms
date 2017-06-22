@@ -10,18 +10,18 @@ using namespace std;
 /// \param array - array to sort
 /// \param length - length of given array
 void counting_sort(int array[], int length) {
-    int occurences[100];
+    int occurrences[100];
     int k = 0;
     for (int i = 0; i < 100; i++) {
-        occurences[i] = 0;
+        occurrences[i] = 0;
     }
 
     for (int i = 0; i < length; i++) {
-        occurences[array[i]]++;
+        occurrences[array[i]]++;
     }
 
     for (int i = 0; i < 100; i++) {
-        for (int j = 0; j < occurences[i]; j++) {
+        for (int j = 0; j < occurrences[i]; j++) {
             array[k] = i;
             k++;
         }
