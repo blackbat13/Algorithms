@@ -28,6 +28,22 @@ int gcd_recursive(int a, int b) {
     return gcd_recursive(b, a%b);
 }
 
+int subtraction_gcd(int a, int b) {
+    while (a > 0 && b > 0) {
+        if (a > b) {
+            a -= b;
+        } else {
+            b -= a;
+        }
+    }
+
+    if (a == 0) {
+        return b;
+    } else {
+        return a;
+    }
+}
+
 int main() {
     int a, b;
 
@@ -39,5 +55,6 @@ int main() {
 
     cout << "iterative gcd(" << a << "," << b << ") = " << gcd_iterative(a,b) << endl;
     cout << "recursive gcd(" << a << "," << b << ") = " << gcd_recursive(a,b) << endl;
+    cout << "subtraction gcd(" << a << "," << b << ") = " << subtraction_gcd(a, b) << endl;
     return 0;
 }
