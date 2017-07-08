@@ -11,7 +11,6 @@ private:
     struct element {
         int value;
         element *next;
-        element *previous;
     };
 
     element *front_el;
@@ -28,7 +27,6 @@ public:
         new_el->next = NULL;
         if (front_el == NULL) {
             front_el = new_el;
-            front_el->previous = NULL;
             el_count++;
             return;
         }
@@ -38,7 +36,6 @@ public:
             last_el = last_el->next;
         }
 
-        new_el->previous = last_el;
         last_el->next = new_el;
         el_count++;
     }
@@ -56,10 +53,6 @@ public:
             element *tmp = front_el->next;
             delete front_el;
             front_el = tmp;
-            if (front_el != NULL) {
-                front_el->previous = NULL;
-            }
-
             el_count--;
             return;
         }
