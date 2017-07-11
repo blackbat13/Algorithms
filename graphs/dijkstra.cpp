@@ -54,10 +54,10 @@ void dijkstra(int node) {
     queue<pair<int, pair<int, int> > > nodes;
 
     distances = vector<int>(graph.size(), INT_MAX);
-    distances[0] = 0;
+    distances[node] = 0;
 
-    for (int i = 0; i < graph[0].size(); i++) {
-        nodes.push(make_pair(graph[0][i].second, make_pair(0, graph[0][i].first)));
+    for (int i = 0; i < graph[node].size(); i++) {
+        nodes.push(make_pair(graph[node][i].second, make_pair(node, graph[node][i].first)));
     }
 
     while (!nodes.empty()) {
