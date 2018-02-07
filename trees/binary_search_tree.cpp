@@ -18,13 +18,13 @@ private:
 
 public:
     BinarySearchTree() {
-        root = NULL;
+        root = nullptr;
     }
 
     void add_value(int value) {
         node *current = root;
         node *next = root;
-        while (next != NULL) {
+        while (next != nullptr) {
             current = next;
             if (value < current->value) {
                 next = current->left;
@@ -35,10 +35,10 @@ public:
 
         next = new node();
         next->value = value;
-        next->left = NULL;
-        next->right = NULL;
+        next->left = nullptr;
+        next->right = nullptr;
 
-        if (current == NULL) {
+        if (current == nullptr) {
             root = next;
             return;
         }
@@ -51,7 +51,7 @@ public:
     }
 
     void inorder(node *current) {
-        if (current == NULL) {
+        if (current == nullptr) {
             return;
         }
 
@@ -61,7 +61,7 @@ public:
     }
 
     void preorder(node *current) {
-        if (current == NULL) {
+        if (current == nullptr) {
             return;
         }
 
@@ -71,7 +71,7 @@ public:
     }
 
     void postorder(node *current) {
-        if (current == NULL) {
+        if (current == nullptr) {
             return;
         }
 
@@ -85,7 +85,7 @@ public:
     }
 
     void clear(node *current) {
-        if (current == NULL) {
+        if (current == nullptr) {
             return;
         }
 
