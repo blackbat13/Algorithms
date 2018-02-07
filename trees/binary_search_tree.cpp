@@ -6,7 +6,7 @@
 
 using namespace std;
 
-class Binary_search_tree {
+class BinarySearchTree {
 private:
     struct node {
         int value;
@@ -17,7 +17,7 @@ private:
     node *root;
 
 public:
-    Binary_search_tree() {
+    BinarySearchTree() {
         root = NULL;
     }
 
@@ -94,16 +94,16 @@ public:
         delete current;
     }
 
-    ~Binary_search_tree() {
+    ~BinarySearchTree() {
         clear(root);
     }
 };
 
 int main() {
     int array[10] = {7, 3, 0, 1, 5, 2, 5, 19, 10, 5};
-    Binary_search_tree binary_search_tree = Binary_search_tree();
-    for (int i = 0; i < 10; i++) {
-        binary_search_tree.add_value(array[i]);
+    BinarySearchTree binary_search_tree = BinarySearchTree();
+    for (int i : array) {
+        binary_search_tree.add_value(i);
     }
 
     cout << "INORDER: ";
