@@ -9,11 +9,11 @@ using namespace std;
 /// Find minimum and maximum value in given array using naive algorithm
 /// \param array - array to search in
 /// \param length - length of given array
-void find_min_max_naive(int array[], int length) {
+void find_min_max_naive(int array[], int n) {
     int min, max, i;
     min = array[0];
     max = array[0];
-    for (i = 1; i < length; i++) {
+    for (i = 1; i < n; i++) {
         if (array[i] < min) {
             min = array[i];
         } else if (array[i] > max) {

@@ -4,9 +4,9 @@ using namespace std;
 /// Sort ascending array of specified length
 /// \param array - array to sort
 /// \param length - length of given array
-void bubble_sort(int array[], int length) {
-    for(int i = 0; i < length; i++) {
-        for(int j = length - 1; j > i; j--) {
+void bubble_sort(int array[], int n) {
+    for(int i = 0; i < n; i++) {
+        for(int j = n - 1; j > i; j--) {
             if(array[j] < array[j-1]) {
                 swap(array[j], array[j-1]);
             }

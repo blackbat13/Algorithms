@@ -9,14 +9,14 @@ using namespace std;
 /// Sort ascending array of specified length
 /// \param array - array to sort
 /// \param length - length of given array
-void counting_sort(int array[], int length) {
+void counting_sort(int array[], int n) {
     int occurrences[100];
     int k = 0;
     for (int i = 0; i < 100; i++) {
         occurrences[i] = 0;
     }
 
-    for (int i = 0; i < length; i++) {
+    for (int i = 0; i < n; i++) {
         occurrences[array[i]]++;
     }
 

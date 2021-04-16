@@ -9,15 +9,15 @@ using namespace std;
 /// Sort ascending array of specified length
 /// \param array - array to sort
 /// \param length - length of given array
-void cocktail_shaker_sort(int array[], int length) {
-    for (int i = 0; i <= length / 2; i++) {
-        for (int j = i; j < length - i - 1; j++) {
+void cocktail_shaker_sort(int array[], int n) {
+    for (int i = 0; i <= n / 2; i++) {
+        for (int j = i; j < n - i - 1; j++) {
             if (array[j] > array[j + 1]) {
                 swap(array[j], array[j + 1]);
             }
         }
 
-        for (int j = length - 1 - i; j > i; j--) {
+        for (int j = n - 1 - i; j > i; j--) {
             if (array[j] < array[j - 1]) {
                 swap(array[j], array[j - 1]);
             }

@@ -11,8 +11,8 @@ using namespace std;
 /// \param length - length of array
 /// \param number - element to find
 /// \return index of element in array, or -1 if not found
-int linear_search(int array[], int length, int number) {
-    for (int i = 0; i < length; i++) {
+int linear_search(int array[], int n, int number) {
+    for (int i = 0; i < n; i++) {
         if (array[i] == number) {
             return i;
         }
