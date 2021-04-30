@@ -1,13 +1,9 @@
-//
-// Created by Damian Kurpiewski on 08.07.2017.
-//
-
 #include <iostream>
 
 using namespace std;
 
-void build_heap(int array[], int length) {
-    for (int i = 1; i < length; i++) {
+void build_heap(int array[], int n) {
+    for (int i = 1; i < n; i++) {
         int parent_index = (i - 1) / 2;
         int j = i;
         while (j > 0 && array[j] > array[parent_index]) {
@@ -18,8 +14,8 @@ void build_heap(int array[], int length) {
     }
 }
 
-void heap_sort(int array[], int length) {
-    for (int i = length - 1; i > 0; i--) {
+void heap_sort(int array[], int n) {
+    for (int i = n - 1; i > 0; i--) {
         build_heap(array, i + 1);
         swap(array[0], array[i]);
     }

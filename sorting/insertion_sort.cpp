@@ -4,9 +4,9 @@ using namespace std;
 
 /// Sort ascending array of specified length
 /// \param array - array to sort
-/// \param length - length of given array
-void insertion_sort(int array[], int length) {
-    for (int i = 1; i < length; i++) {
+/// \param n - length of the given array
+void insertion_sort(int array[], int n) {
+    for (int i = 1; i < n; i++) {
         int j = i;
         while (j > 0 && array[j] < array[j - 1]) {
             swap(array[j], array[j - 1]);

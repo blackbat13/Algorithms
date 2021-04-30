@@ -1,14 +1,10 @@
-//
-// Created by Damian Kurpiewski on 26.01.2017.
-//
-
 #include <iostream>
 
 using namespace std;
 
 /// Sort ascending array of specified length
 /// \param array - array to sort
-/// \param length - length of given array
+/// \param n - length of the given array
 void counting_sort(int array[], int n) {
     int occurrences[100];
     int k = 0;

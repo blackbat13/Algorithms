@@ -1,10 +1,5 @@
-//
-// Created by Damian Kurpiewski on 02.11.2016.
-//
-
 #include <iostream>
 #include <stack>
-#include <map>
 #include <queue>
 
 using namespace std;

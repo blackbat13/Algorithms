@@ -1,7 +1,3 @@
-//
-// Created by Damian Kurpiewski on 27.10.2016.
-//
-
 #include <iostream>
 using namespace std;
 
@@ -23,10 +19,10 @@ int find_min(int array[], int from, int to) {
 
 /// Sort ascending array of specified length
 /// \param array - array to sort
-/// \param length - length of given array
-void selection_sort(int array[], int length) {
-    for(int i = 0; i < length; i++) {
-        int min_index = find_min(array, i, length);
+/// \param n - length of given array
+void selection_sort(int array[], int n) {
+    for(int i = 0; i < n; i++) {
+        int min_index = find_min(array, i, n);
 
         swap(array[i], array[min_index]);
     }

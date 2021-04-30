@@ -3,7 +3,7 @@ using namespace std;
 
 /// Sort ascending array of specified length
 /// \param array - array to sort
-/// \param length - length of given array
+/// \param n - length of the given array
 void bubble_sort(int array[], int n) {
     for(int i = 0; i < n; i++) {
         for(int j = n - 1; j > i; j--) {
