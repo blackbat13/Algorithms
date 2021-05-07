@@ -9,96 +9,102 @@
 
 using namespace std;
 
-/// Incidence list of the weighted graph
-vector<vector<pair<int, int> > > graph;
+/// Structure for representing an edge in a weighted graph
+struct edge {
+    int from;
+    int to;
+    int distance;
 
-vector<vector<pair<int, int> > > min_spanning_tree;
+    edge(int from, int to, int distance) {
+        this->from = from;
+        this->to = to;
+        this->distance = distance;
+    }
+
+    bool operator<(const edge &rhs) const {
+        return distance > rhs.distance;
+    }
+};
+
+/// Incidence list of the weighted graph
+vector<vector<edge> > graph;
+
+vector<edge> min_spanning_tree;
 
 vector<bool> visited;
 
 /// Prepares example graph adding vertices to incidence list
-void prepare_example_graph() {
-    graph = vector<vector<pair<int, int> > >(7);
-    graph[0].push_back(make_pair(1, 5));
-    graph[0].push_back(make_pair(6, 5));
+void prepareExampleGraph() {
+    graph = vector<vector<edge> >(7);
+    graph[0].push_back(edge(0, 1, 5));
+    graph[0].push_back(edge(0, 6, 5));
 
-    graph[1].push_back(make_pair(0, 5));
-    graph[1].push_back(make_pair(6, 5));
-    graph[1].push_back(make_pair(3, 3));
-    graph[1].push_back(make_pair(2, 3));
+    graph[1].push_back(edge(1, 0, 5));
+    graph[1].push_back(edge(1, 6, 5));
+    graph[1].push_back(edge(1, 3, 3));
+    graph[1].push_back(edge(1, 2, 3));
 
-    graph[2].push_back(make_pair(1, 3));
-    graph[2].push_back(make_pair(3, 1));
+    graph[2].push_back(edge(2, 1, 3));
+    graph[2].push_back(edge(2, 3, 1));
 
-    graph[3].push_back(make_pair(2, 1));
-    graph[3].push_back(make_pair(1, 3));
-    graph[3].push_back(make_pair(6, 3));
-    graph[3].push_back(make_pair(4, 5));
-    graph[3].push_back(make_pair(5, 4));
+    graph[3].push_back(edge(3, 2, 1));
+    graph[3].push_back(edge(3, 1, 3));
+    graph[3].push_back(edge(3, 6, 3));
+    graph[3].push_back(edge(3, 4, 5));
+    graph[3].push_back(edge(3, 5, 4));
 
-    graph[4].push_back(make_pair(3, 5));
-    graph[4].push_back(make_pair(5, 2));
+    graph[4].push_back(edge(4, 3, 5));
+    graph[4].push_back(edge(4, 5, 2));
 
-    graph[5].push_back(make_pair(4, 2));
-    graph[5].push_back(make_pair(3, 4));
-    graph[5].push_back(make_pair(6, 5));
+    graph[5].push_back(edge(5, 4, 2));
+    graph[5].push_back(edge(5, 3, 4));
+    graph[5].push_back(edge(5, 6, 5));
 
-    graph[6].push_back(make_pair(0, 5));
-    graph[6].push_back(make_pair(1, 5));
-    graph[6].push_back(make_pair(3, 3));
-    graph[6].push_back(make_pair(5, 5));
+    graph[6].push_back(edge(6, 0, 5));
+    graph[6].push_back(edge(6, 1, 5));
+    graph[6].push_back(edge(6, 3, 3));
+    graph[6].push_back(edge(6, 5, 5));
 }
 
 void prim(int node) {
-    priority_queue<pair<int, pair<int, int> > > edges;
-    int next_node, distance, from_node;
+    priority_queue<edge> edges;
 
-    min_spanning_tree = vector<vector<pair<int, int> > >(graph.size());
+    min_spanning_tree = vector<edge>();
     visited = vector<bool>(graph.size());
     visited[node] = true;
+
     for (int i = 0; i < graph[node].size(); i++) {
-        next_node = graph[node][i].first;
-        distance = graph[node][i].second;
-        edges.push(make_pair(-distance, make_pair(node, next_node)));
+        edges.push(graph[node][i]);
     }
 
     while (!edges.empty()) {
-        pair<int, pair<int, int> > edge = edges.top();
+        edge current = edges.top();
         edges.pop();
 
-        from_node = edge.second.first;
-        node = edge.second.second;
-        distance = -edge.first;
-        if (visited[node]) {
+        if (visited[current.to]) {
             continue;
         }
 
-        visited[node] = true;
-        min_spanning_tree[from_node].push_back(make_pair(node, distance));
-        min_spanning_tree[node].push_back(make_pair(from_node, distance));
+        visited[current.to] = true;
+        min_spanning_tree.push_back(current);
 
-        for (int i = 0; i < graph[node].size(); i++) {
-            next_node = graph[node][i].first;
-            distance = graph[node][i].second;
-            if (!visited[next_node]) {
-                edges.push(make_pair(-distance, make_pair(node, next_node)));
+        for (int i = 0; i < graph[current.to].size(); i++) {
+            edge next = graph[current.to][i];
+            if (!visited[next.to]) {
+                edges.push(next);
             }
         }
     }
 }
 
 int main() {
-
-    prepare_example_graph();
+    prepareExampleGraph();
 
     prim(0);
 
     for (int i = 0; i < min_spanning_tree.size(); i++) {
-        for (int j = 0; j < min_spanning_tree[i].size(); j++) {
-            if (min_spanning_tree[i][j].first > i) {
-                cout << i << " -(" << min_spanning_tree[i][j].second << ")-> " << min_spanning_tree[i][j].first << endl;
-            }
-        }
+        edge current = min_spanning_tree[i];
+        cout << current.from << " <-(" << current.distance << ")-> " << current.to << endl;
     }
 
     return 0;
