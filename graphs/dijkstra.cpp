@@ -9,86 +9,90 @@
 
 using namespace std;
 
+/// Structure for representing an edge in a weighted graph
+struct edge {
+    int from;
+    int to;
+    int distance;
+
+    edge(int from, int to, int distance) {
+        this->from = from;
+        this->to = to;
+        this->distance = distance;
+    }
+};
+
 /// Incidence list of the weighted graph
-vector<vector<pair<int, int> > > graph;
+vector<vector<edge> > graph;
 
 /// Distance to each node from starting node
 vector<int> distances;
 
 /// Prepares example graph adding vertices to incidence list
-void prepare_example_graph() {
-    graph = vector<vector<pair<int, int> > >(7);
-    graph[0].push_back(make_pair(1, 5));
-    graph[0].push_back(make_pair(6, 5));
+void prepareExampleGraph() {
+    graph = vector<vector<edge> >(7);
+    graph[0].push_back(edge(0, 1, 5));
+    graph[0].push_back(edge(0, 6, 5));
 
-    graph[1].push_back(make_pair(0, 5));
-    graph[1].push_back(make_pair(6, 5));
-    graph[1].push_back(make_pair(3, 3));
-    graph[1].push_back(make_pair(2, 3));
+    graph[1].push_back(edge(1, 0, 5));
+    graph[1].push_back(edge(1, 6, 5));
+    graph[1].push_back(edge(1, 3, 3));
+    graph[1].push_back(edge(1, 2, 3));
 
-    graph[2].push_back(make_pair(1, 3));
-    graph[2].push_back(make_pair(3, 1));
+    graph[2].push_back(edge(2, 1, 3));
+    graph[2].push_back(edge(2, 3, 1));
 
-    graph[3].push_back(make_pair(2, 1));
-    graph[3].push_back(make_pair(1, 3));
-    graph[3].push_back(make_pair(6, 3));
-    graph[3].push_back(make_pair(4, 5));
-    graph[3].push_back(make_pair(5, 4));
+    graph[3].push_back(edge(3, 2, 1));
+    graph[3].push_back(edge(3, 1, 3));
+    graph[3].push_back(edge(3, 6, 3));
+    graph[3].push_back(edge(3, 4, 5));
+    graph[3].push_back(edge(3, 5, 4));
 
-    graph[4].push_back(make_pair(3, 5));
-    graph[4].push_back(make_pair(5, 2));
+    graph[4].push_back(edge(4, 3, 5));
+    graph[4].push_back(edge(4, 5, 2));
 
-    graph[5].push_back(make_pair(4, 2));
-    graph[5].push_back(make_pair(3, 4));
-    graph[5].push_back(make_pair(6, 5));
+    graph[5].push_back(edge(5, 4, 2));
+    graph[5].push_back(edge(5, 3, 4));
+    graph[5].push_back(edge(5, 6, 5));
 
-    graph[6].push_back(make_pair(0, 5));
-    graph[6].push_back(make_pair(1, 5));
-    graph[6].push_back(make_pair(3, 3));
-    graph[6].push_back(make_pair(5, 5));
+    graph[6].push_back(edge(6, 0, 5));
+    graph[6].push_back(edge(6, 1, 5));
+    graph[6].push_back(edge(6, 3, 3));
+    graph[6].push_back(edge(6, 5, 5));
 }
 
-/// Iterative bfs algorithm
+/// Dijkstra algorithm for finding shortest paths from the given node
 /// \param node - starting node to visit
 void dijkstra(int node) {
-    queue<pair<int, pair<int, int> > > nodes;
+    queue<edge> edges;
 
     distances = vector<int>(graph.size(), INT_MAX);
     distances[node] = 0;
 
     for (int i = 0; i < graph[node].size(); i++) {
-        nodes.push(make_pair(graph[node][i].second, make_pair(node, graph[node][i].first)));
+        edges.push(graph[node][i]);
     }
 
-    while (!nodes.empty()) {
-        int distance;
-        int from_node;
-        int new_distance;
-        node = nodes.front().second.second;
-        distance = nodes.front().first;
-        from_node = nodes.front().second.first;
+    while (!edges.empty()) {
+        edge current = edges.front();
+        edges.pop();
 
-        nodes.pop();
+        int new_distance = distances[current.from] + current.distance;
 
-        new_distance = distances[from_node] + distance;
-
-        if (new_distance >= distances[node]) {
+        if (new_distance >= distances[current.to]) {
             continue;
         }
 
-        distances[node] = new_distance;
+        distances[current.to] = new_distance;
 
-        for (int i = 0; i < graph[node].size(); i++) {
-            int next_node = graph[node][i].first;
-            distance = graph[node][i].second;
-            nodes.push(make_pair(distance, make_pair(node, next_node)));
+        for (int i = 0; i < graph[current.to].size(); i++) {
+            edges.push(graph[current.to][i]);
         }
     }
 }
 
 int main() {
-
-    prepare_example_graph();
+    prepareExampleGraph();
 
     dijkstra(0);
 
